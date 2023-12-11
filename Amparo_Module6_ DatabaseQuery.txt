@@ -1,0 +1,49 @@
+Queries for Module 6: Assignment 1:
+
+What are the employee names and employee ID numbers of everyone who is a packer? Order the results ascending by employee name.
+
+How many employees are Managers?  Your answer should be in the form of a number.
+
+What are the employee names and employee ID numbers of everyone who lives in Middletown?  Order the results descending by employee ID.
+
+
+Statement 1
+
+Select REQ.EmployeeId, REQ.PositionTitle, EmployeeRecord.EmployeeName
+From REQ
+Inner JOIN EmployeeRecord er ON er.EmployeeRecords = req.EmployeeId                                                                                                                                       
+Where REQ.PositionTitle = 'Packers'
+Order By EmployeeName ASC; 
+
+
+
+------------------------------------------------------------
+
+Select EmployeeId, EmployeeName, PositionTitle
+From EmployeeRecord, REQ
+Where PositionTitle = 'Packers'
+Order By EmployeeId, EmployeeName DESC;
+
+
+
+------------------------------------------------------------
+
+
+Statment 2
+
+
+Select COUNT(PositionTitle) AS PositionQty
+From Req
+Where PositionTitle ='Manager';
+
+
+
+
+-----------------------------------------------------------
+
+Statement 3
+
+Select EmployeeId, EmployeeName, EmployeeAddress
+From EmployeeRecord;
+Where EmployeeAddress = '%Middletown%'
+

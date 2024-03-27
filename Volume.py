@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[12]:
 
 
 import numpy as np
@@ -45,11 +41,8 @@ estimated_monthly_spend_by_country = {
 estimated_monthly_spend_by_country
 
 
-# In[14]:
-
 
 # Since the direct mapping by country didn't work, let's attempt to identify lanes by origin and destination cities
-# First, let's create a mapping of countries to their major cities based on the data provided and the financial breakdown
 
 country_city_mapping = {
     "China": ["DONGGUAN"],  # Assuming Dongguan represents China for simplicity
@@ -71,10 +64,8 @@ filtered_summary_with_cities
 
 
 
-# In[15]:
 
 
-# First, let's calculate the total estimated kilograms for the entire dataset based on the spend for imports and exports
 # We will then distribute this total estimated volume across all lanes based on the number of lanes
 
 # Calculate total estimated kilograms for the dataset
@@ -122,12 +113,6 @@ print("Estimated Kilograms for Each Country Pairing:")
 for country, kg in kg_estimates.items():
     print(f"{country}: {kg:.2f} kg")
 
-# Since the price per kilogram is a given (assumed) value in this scenario, 
-# the calculation of estimated price per kg from the provided data is not directly applicable.
-# However, if we were to infer the price per kilogram from the spend and estimated volumes, 
-# it would essentially reflect our initial assumption.
-
-# For demonstration, here's how you would calculate it if you had actual volume data:
 actual_volumes = kg_estimates  # Hypothetical actual volumes, in this case, our estimates
 price_per_kg_estimates = {
     country: (spend * 12) / actual_volumes[country]
@@ -140,13 +125,6 @@ for country, price in price_per_kg_estimates.items():
     print(f"{country}: ${price:.2f} per kg")
 
 
-# In[ ]:
-
-
-
-
-
-# In[17]:
 
 
 unique_country_city_pairs = data[['ORIGIN COUNTRY', 'DESTINATION CITY']].drop_duplicates().reset_index(drop=True)
@@ -213,37 +191,8 @@ def print_formatted_results(annual_spend_by_route, cost_per_ton, cost_per_kg):
             cost_per_ton[route], 
             cost_per_kg[route]))
 
-# Assuming annual_spend_by_route, cost_per_ton, and cost_per_kg are defined as per previous steps
 print_formatted_results(annual_spend_by_route, cost_per_ton, cost_per_kg)
 
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-|\0oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 

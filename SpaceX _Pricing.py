@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[17]:
 
 
 import numpy as np
@@ -10,27 +6,20 @@ import matplotlib.pyplot as plt
 import seaborn as sb
 sb.set()
 
-
-# Environment setup
 df = pd.read_excel('C:/Users/danam/OneDrive/Desktop/Work/SpaceX.xlsx')
 
 print(df.head(15))
 
 
-# In[18]:
-
-
-# Adjust the DataFrame to use the first row as header
 df.columns = df.iloc[0]  # Set the first row as the column names
 df = df[1:]  # Remove the first row from the DataFrame
 
-# Display the corrected DataFrame structure
+
 print(df.head())
 
 # Group by "ORIGIN COUNTRY" and "DESTINATION CITY" and count occurrences
 route_counts = df.groupby(['ORIGIN COUNTRY', 'DESTINATION CITY']).size()
 
-# Find the most recurring route
 most_recurring_route = route_counts.idxmax()
 most_recurring_route_count = route_counts.max()
 
@@ -86,16 +75,10 @@ plt.xlabel('Frequency')
 plt.ylabel('Route')
 plt.tight_layout()
 
-# Show the plot
+
 plt.show()
 
-
-
-# In[21]:
-
-
-import pandas as pd
-import matplotlib.pyplot as plt
+----------------------------------------------------------------
 
 # Constants
 COST_PER_KG = 5  # Hypothetical average cost per kg
@@ -130,8 +113,7 @@ plt.show()
 df_volume
 
 
-# In[22]:
-
+---------------------------------------------------------------------
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -203,11 +185,8 @@ average_price_per_kilo = total_monthly_spend / total_estimated_weight_kg
 average_price_per_kilo
 
 
-# In[24]:
-
 
 # Re-calculate the estimated weights in kg for each country using the tonnage provided earlier
-# We are using the estimated volume in tons and converting it to kg for accuracy
 weight_kg_china = 2000.0 * 1000  # from tons to kg
 weight_kg_taiwan = 960.0 * 1000  # from tons to kg
 weight_kg_netherlands = 180.0 * 1000  # from tons to kg
@@ -222,16 +201,6 @@ average_price_per_kilo = total_monthly_spend / total_estimated_weight_kg
 average_price_per_kilo
 
 
-# In[ ]:
-
-
-
-
-
-# In[25]:
-
-
-# We already have the monthly spend by country and the estimated volume in tons.
 # Let's first convert the estimated volume in tons back to kg
 estimated_volume_kg = {city_pair: tons * 1000 for city_pair, tons in estimated_volume_tons.items()}
 
@@ -253,13 +222,6 @@ df_price_per_kilo = pd.DataFrame(list(average_price_per_kilo.items()),
 weighted_average_price_per_kilo, df_price_per_kilo
 
 
-# In[ ]:
-
-
-
-
-
-# In[26]:
 
 
 estimated_volume_kg = {city_pair: tons * 1000 for city_pair, tons in estimated_volume_tons.items()}
@@ -282,10 +244,6 @@ df_price_per_kilo = pd.DataFrame(list(average_price_per_kilo.items()),
 weighted_average_price_per_kilo, df_price_per_kilo
 
 
-# In[27]:
-
-
-# Plotting the average price per kilo for each city pair
 plt.figure(figsize=(10, 6))
 bar_plot = plt.bar(df_price_per_kilo['City Pair'], df_price_per_kilo['Average Price per Kilo ($)'], color='lightcoral')
 plt.ylabel('Average Price per Kilo ($)')
@@ -300,15 +258,6 @@ for bar in bar_plot:
 
 # Show the plot
 plt.show()
-
-
-# In[ ]:
-
-
-
-
-
-# In[28]:
 
 
 # Existing estimated volume in tons

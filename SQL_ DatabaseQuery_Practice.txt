@@ -1,10 +1,10 @@
-Queries for Module 6: Assignment 1:
+Assignment 1:
 
 What are the employee names and employee ID numbers of everyone who is a packer? Order the results ascending by employee name.
 
 How many employees are Managers?  Your answer should be in the form of a number.
 
-What are the employee names and employee ID numbers of everyone who lives in Middletown?  Order the results descending by employee ID.
+What are the employee names and ID numbers of everyone living in Middletown?  Order the results descending by employee ID.
 
 
 Statement 1
@@ -29,7 +29,7 @@ Order By EmployeeId, EmployeeName DESC;
 ------------------------------------------------------------
 
 
-Statment 2
+Statement 2
 
 
 Select COUNT(PositionTitle) AS PositionQty
